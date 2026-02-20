@@ -1,5 +1,9 @@
 package com.example;
 
+import com.example.DP.EmailNotifier;
+import com.example.DP.INotifier;
+import com.example.DP.SMSNotifierDecorator;
+import com.example.DP.SlackNotifierDecorator;
 import com.example.FMP.FileSource;
 import com.example.FMP.MigrationTool;
 import com.example.FMP.Source;
@@ -52,9 +56,16 @@ public class Main {
         newsAgency.unsubscribe(tc);
         newsAgency.setNews("Wydad Casablanca are releasing new tea cups following their new independent brand ..."); */
 
-        ThirdPartyYoutubeLibCached api = new ThirdPartyYoutubeLibCached();
+        /* ThirdPartyYoutubeLibCached api = new ThirdPartyYoutubeLibCached();
         api.getVideo("cats_playing.mp4");
         api.getVideo("cats_playing.mp4");
-        api.getVideo("wydad_highlights.mp4");
+        api.getVideo("wydad_highlights.mp4"); */
+
+
+        String message = "Dexter's birthday is tomorrow !";
+        INotifier alert = new EmailNotifier();
+        alert = new SMSNotifierDecorator(alert);
+        alert = new SlackNotifierDecorator(alert);
+        alert.send(message);
     }
 }

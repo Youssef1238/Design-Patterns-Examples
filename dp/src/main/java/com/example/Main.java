@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.AP.AudioPlayer;
 import com.example.DP.EmailNotifier;
 import com.example.DP.INotifier;
 import com.example.DP.SMSNotifierDecorator;
@@ -71,13 +72,19 @@ public class Main {
         alert = new SlackNotifierDecorator(alert);
         alert.send(message); */
 
-        ShoppingCart shoppingCart = new ShoppingCart();
+        /* ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.addItem(15);
         shoppingCart.addItem(10);
         shoppingCart.checkout();
         shoppingCart.setPaymentStrategy(new CryptoStrategy());
         shoppingCart.checkout();
         shoppingCart.setPaymentStrategy(new PaypalStrategy());
-        shoppingCart.checkout();
+        shoppingCart.checkout(); */
+
+        AudioPlayer audioPlayer = new AudioPlayer();
+        audioPlayer.play("mp3", "file.mp3");
+        audioPlayer.play("mp4", "file.mp4");
+        audioPlayer.play("vlc", "file.vlc");
+        audioPlayer.play("avi", "file.avi");
     }
 }

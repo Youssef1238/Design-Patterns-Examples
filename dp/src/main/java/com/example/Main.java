@@ -9,6 +9,7 @@ import com.example.FMP.FileSource;
 import com.example.FMP.MigrationTool;
 import com.example.FMP.Source;
 import com.example.FMP.SqlSource;
+import com.example.FP.CloudProviderFacade;
 import com.example.OP.MobileApp;
 import com.example.OP.NewsAgency;
 import com.example.OP.NewsPaper;
@@ -81,10 +82,13 @@ public class Main {
         shoppingCart.setPaymentStrategy(new PaypalStrategy());
         shoppingCart.checkout(); */
 
-        AudioPlayer audioPlayer = new AudioPlayer();
+        /* AudioPlayer audioPlayer = new AudioPlayer();
         audioPlayer.play("mp3", "file.mp3");
         audioPlayer.play("mp4", "file.mp4");
         audioPlayer.play("vlc", "file.vlc");
-        audioPlayer.play("avi", "file.avi");
+        audioPlayer.play("avi", "file.avi"); */
+
+        CloudProviderFacade cloudProvider = new CloudProviderFacade();
+        cloudProvider.deployWebsite();
     }
 }

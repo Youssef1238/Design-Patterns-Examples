@@ -14,6 +14,9 @@ import com.example.OP.NewsPaper;
 import com.example.OP.TvChannel;
 import com.example.PP.ThirdPartyYoutubeLibCached;
 import com.example.SP.GameConfig;
+import com.example.StrategyP.CryptoStrategy;
+import com.example.StrategyP.PaypalStrategy;
+import com.example.StrategyP.ShoppingCart;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -62,10 +65,19 @@ public class Main {
         api.getVideo("wydad_highlights.mp4"); */
 
 
-        String message = "Dexter's birthday is tomorrow !";
+        /* String message = "Dexter's birthday is tomorrow !";
         INotifier alert = new EmailNotifier();
         alert = new SMSNotifierDecorator(alert);
         alert = new SlackNotifierDecorator(alert);
-        alert.send(message);
+        alert.send(message); */
+
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.addItem(15);
+        shoppingCart.addItem(10);
+        shoppingCart.checkout();
+        shoppingCart.setPaymentStrategy(new CryptoStrategy());
+        shoppingCart.checkout();
+        shoppingCart.setPaymentStrategy(new PaypalStrategy());
+        shoppingCart.checkout();
     }
 }

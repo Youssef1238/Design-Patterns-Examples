@@ -5,6 +5,11 @@ import com.example.BP.Computer;
 import com.example.CP.RemoteControl;
 import com.example.CP.SetTempCommand;
 import com.example.CP.Receivers.AC;
+import com.example.CRP.BotHandler;
+import com.example.CRP.SeniorHandler;
+import com.example.CRP.SupportHandler;
+import com.example.CRP.TechHandler;
+import com.example.CRP.Ticket;
 import com.example.CompositeP.Box;
 import com.example.CompositeP.Product;
 import com.example.DP.EmailNotifier;
@@ -143,11 +148,25 @@ public class Main {
         System.out.println("Total price: " + bigBox.getPrice()); */
 
 
-        Computer computer = new Computer.ComputerBuilder("i5", 16)
+        /* Computer computer = new Computer.ComputerBuilder("i5", 16)
         .setCooler(true)
         .setWIFI(true)
         .build();
 
-        System.out.println(computer.toString());
+        System.out.println(computer.toString()); */
+
+        SupportHandler bot = new BotHandler();
+        SupportHandler tech = new TechHandler();
+        SupportHandler senior = new SeniorHandler();
+
+        bot.setNext(tech);
+        tech.setNext(senior);
+
+        Ticket t1 = new Ticket("Password reset" ,1 );
+        Ticket t2 = new Ticket( "Server is on fire", 3);
+
+        bot.handle(t1);
+        System.out.println("---");
+        bot.handle(t2);
     }
 }

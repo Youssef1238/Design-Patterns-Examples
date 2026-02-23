@@ -1,6 +1,9 @@
 package com.example;
 
 import com.example.AP.AudioPlayer;
+import com.example.CP.RemoteControl;
+import com.example.CP.SetTempCommand;
+import com.example.CP.Receivers.AC;
 import com.example.DP.EmailNotifier;
 import com.example.DP.INotifier;
 import com.example.DP.SMSNotifierDecorator;
@@ -88,7 +91,23 @@ public class Main {
         audioPlayer.play("vlc", "file.vlc");
         audioPlayer.play("avi", "file.avi"); */
 
-        CloudProviderFacade cloudProvider = new CloudProviderFacade();
-        cloudProvider.deployWebsite();
+        /* CloudProviderFacade cloudProvider = new CloudProviderFacade();
+        cloudProvider.deployWebsite(); */
+
+        AC ac = new AC(12);
+        RemoteControl remoteControl = new RemoteControl();
+        SetTempCommand setTempCommand = new SetTempCommand(ac);
+        setTempCommand.setTargetTemp(24);
+        remoteControl.pressButton(setTempCommand);
+        System.out.println("target: " + ac.getTargetTemp());
+        setTempCommand.setTargetTemp(40);
+        remoteControl.pressButton(setTempCommand);
+        System.out.println("target: " + ac.getTargetTemp());
+        remoteControl.pressUndo();
+        System.out.println("target: " + ac.getTargetTemp());
+        remoteControl.pressUndo();
+        System.out.println("target: " + ac.getTargetTemp());
+        remoteControl.pressUndo();
+        System.out.println("target: " + ac.getTargetTemp());
     }
 }

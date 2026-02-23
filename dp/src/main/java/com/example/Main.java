@@ -23,6 +23,9 @@ import com.example.StateP.Document;
 import com.example.StrategyP.CryptoStrategy;
 import com.example.StrategyP.PaypalStrategy;
 import com.example.StrategyP.ShoppingCart;
+import com.example.TMethodP.Coffe;
+import com.example.TMethodP.HotBeverage;
+import com.example.TMethodP.Tea;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -111,10 +114,16 @@ public class Main {
         remoteControl.pressUndo();
         System.out.println("target: " + ac.getTargetTemp()); */
 
-        Document document = new Document();
+        /* Document document = new Document();
         document.publish();
         document.publish();
         document.publish();
-        document.publish();
+        document.publish(); */
+
+        HotBeverage myTea = new Tea();
+        myTea.prepareRecipe();
+        System.out.println("-------------------------------------");
+        HotBeverage myCoffe = new Coffe();
+        myCoffe.prepareRecipe();
     }
 }

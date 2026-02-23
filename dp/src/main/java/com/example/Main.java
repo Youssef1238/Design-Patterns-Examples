@@ -4,6 +4,8 @@ import com.example.AP.AudioPlayer;
 import com.example.CP.RemoteControl;
 import com.example.CP.SetTempCommand;
 import com.example.CP.Receivers.AC;
+import com.example.CompositeP.Box;
+import com.example.CompositeP.Product;
 import com.example.DP.EmailNotifier;
 import com.example.DP.INotifier;
 import com.example.DP.SMSNotifierDecorator;
@@ -120,10 +122,23 @@ public class Main {
         document.publish();
         document.publish(); */
 
-        HotBeverage myTea = new Tea();
+        /* HotBeverage myTea = new Tea();
         myTea.prepareRecipe();
         System.out.println("-------------------------------------");
         HotBeverage myCoffe = new Coffe();
-        myCoffe.prepareRecipe();
+        myCoffe.prepareRecipe(); */
+
+        Product phone = new Product("Phone", 1000);
+        Product charger = new Product("Charger", 50);
+        Product earphones = new Product("Earphones", 100);
+
+        Box smallBox = new Box();
+        smallBox.add(charger); smallBox.add(earphones);
+
+        Box bigBox = new Box();
+        bigBox.add(phone);
+        bigBox.add(smallBox);
+
+        System.out.println("Total price: " + bigBox.getPrice());
     }
 }

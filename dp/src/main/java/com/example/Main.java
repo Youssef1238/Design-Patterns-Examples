@@ -19,6 +19,7 @@ import com.example.OP.NewsPaper;
 import com.example.OP.TvChannel;
 import com.example.PP.ThirdPartyYoutubeLibCached;
 import com.example.SP.GameConfig;
+import com.example.StateP.Document;
 import com.example.StrategyP.CryptoStrategy;
 import com.example.StrategyP.PaypalStrategy;
 import com.example.StrategyP.ShoppingCart;
@@ -94,7 +95,7 @@ public class Main {
         /* CloudProviderFacade cloudProvider = new CloudProviderFacade();
         cloudProvider.deployWebsite(); */
 
-        AC ac = new AC(12);
+        /* AC ac = new AC(12);
         RemoteControl remoteControl = new RemoteControl();
         SetTempCommand setTempCommand = new SetTempCommand(ac);
         setTempCommand.setTargetTemp(24);
@@ -108,6 +109,12 @@ public class Main {
         remoteControl.pressUndo();
         System.out.println("target: " + ac.getTargetTemp());
         remoteControl.pressUndo();
-        System.out.println("target: " + ac.getTargetTemp());
+        System.out.println("target: " + ac.getTargetTemp()); */
+
+        Document document = new Document();
+        document.publish();
+        document.publish();
+        document.publish();
+        document.publish();
     }
 }

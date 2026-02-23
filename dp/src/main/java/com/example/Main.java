@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.AP.AudioPlayer;
+import com.example.BP.Computer;
 import com.example.CP.RemoteControl;
 import com.example.CP.SetTempCommand;
 import com.example.CP.Receivers.AC;
@@ -128,7 +129,7 @@ public class Main {
         HotBeverage myCoffe = new Coffe();
         myCoffe.prepareRecipe(); */
 
-        Product phone = new Product("Phone", 1000);
+        /* Product phone = new Product("Phone", 1000);
         Product charger = new Product("Charger", 50);
         Product earphones = new Product("Earphones", 100);
 
@@ -139,6 +140,14 @@ public class Main {
         bigBox.add(phone);
         bigBox.add(smallBox);
 
-        System.out.println("Total price: " + bigBox.getPrice());
+        System.out.println("Total price: " + bigBox.getPrice()); */
+
+
+        Computer computer = new Computer.ComputerBuilder("i5", 16)
+        .setCooler(true)
+        .setWIFI(true)
+        .build();
+
+        System.out.println(computer.toString());
     }
 }

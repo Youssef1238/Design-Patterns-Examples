@@ -1,5 +1,8 @@
 package com.example;
 
+import com.example.AFP.AppleFactory;
+import com.example.AFP.SusmangFactory;
+import com.example.AFP.TechFactory;
 import com.example.AP.AudioPlayer;
 import com.example.BP.Computer;
 import com.example.CP.RemoteControl;
@@ -155,7 +158,7 @@ public class Main {
 
         System.out.println(computer.toString()); */
 
-        SupportHandler bot = new BotHandler();
+        /* SupportHandler bot = new BotHandler();
         SupportHandler tech = new TechHandler();
         SupportHandler senior = new SeniorHandler();
 
@@ -167,6 +170,14 @@ public class Main {
 
         bot.handle(t1);
         System.out.println("---");
-        bot.handle(t2);
+        bot.handle(t2); */
+
+        TechFactory factory;
+        factory = new SusmangFactory();
+        factory.createSmartphone().displayInfo();
+        factory.createTablet().displayInfo();
+        factory = new AppleFactory();
+        factory.createSmartphone().displayInfo();
+        factory.createTablet().displayInfo();
     }
 }
